@@ -59,7 +59,7 @@ const X: React.FC<XProps> = ({ data }) => {
 
   return (
     <div className="p-4 max-w-4xl mx-auto">
-<div className='text-2xl font-bold'>X netra</div>
+<div className='text-2xl font-bold'>X Netra</div>
       <Card className="mb-6">
         <CardHeader>
           <div className="flex items-center space-x-4">
