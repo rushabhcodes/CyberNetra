@@ -8,8 +8,8 @@ import { Button } from './ui/button';
 import { Alert } from './ui/alert';
 import Instagram from './Instagram';
 
-const InstagramFetchComponent: React.FC = () => {
-  const [url, setUrl] = useState<string>('https://www.instagram.com/_creative_.world/'); // Default Instagram URL
+const XFetchComponent: React.FC = () => {
+  const [url, setUrl] = useState<string>('https://x.com/elonmusk/'); // Default Instagram URL
   const [response, setResponse] = useState<any>(null);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
@@ -22,7 +22,7 @@ const InstagramFetchComponent: React.FC = () => {
     console.log('Instagram form submitted with URL:', url);
 
     try {
-      const res = await fetch('/api/fetchInstagramData', {
+      const res = await fetch('/api/fetchXData', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -35,10 +35,10 @@ const InstagramFetchComponent: React.FC = () => {
       }
 
       const data = await res.json();
-      console.log('Instagram response received:', data);
+      console.log('X response received:', data);
       setResponse(data);
     } catch (err) {
-      console.error('Error occurred while fetching Instagram data:', err);
+      console.error('Error occurred while fetching X data:', err);
       setError(err instanceof Error ? err.message : 'An error occurred');
     } finally {
       setLoading(false); // Stop loading when done
@@ -48,10 +48,10 @@ const InstagramFetchComponent: React.FC = () => {
 
   return (
     <Card className="p-4">
-      <h1 className="text-lg font-bold">Fetch Instagram Data</h1>
+      <h1 className="text-lg font-bold">Fetch X Data</h1>
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
-          <Label htmlFor="url">Instagram URL:</Label>
+          <Label htmlFor="url">X URL:</Label>
           <Input
             id="url"
             type="url"
@@ -68,7 +68,7 @@ const InstagramFetchComponent: React.FC = () => {
       {response && (
         <div className="mt-4">
           <h2 className="text-lg font-semibold">Response:</h2>
-          <Instagram data={response}/>
+          <X data={response}/>
         </div>
       )}
 
@@ -82,4 +82,4 @@ const InstagramFetchComponent: React.FC = () => {
   );
 };
 
-export default InstagramFetchComponent;
+export default XFetchComponent;

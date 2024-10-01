@@ -1,8 +1,7 @@
-import Facebook from "@/components/Facebook";
-import Fetch from "@/components/Fetch";
-import Instagram from "@/components/Instagram";
+
+import FacebookFetchComponent from "@/components/FacebookFetch";
 import InstagramFetchComponent from "@/components/InstagramFetch";
-import X from "@/components/X";
+import XFetchComponent from "@/components/XFetch";
 
 const facebook_posts = [
   {
@@ -456,15 +455,13 @@ const x_data = [
 
 export default function Home() {
   return (
-    <div>
-       <Fetch></Fetch>
-       <InstagramFetchComponent></InstagramFetchComponent>
-      <div className="flex flex-auto min-h-screen gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
+    <div>       
+      <div className="grid grid-cols-3 min-h-screen gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
         {/* <Test {data}/> */}
       
-        <Instagram  data={instagram_data} />
-        <Facebook posts={facebook_posts}/>
-        <X data={x_data }/>
+        <InstagramFetchComponent></InstagramFetchComponent>
+        <FacebookFetchComponent></FacebookFetchComponent>
+        <XFetchComponent></XFetchComponent>
       </div>
     </div>
   );

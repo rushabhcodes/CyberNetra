@@ -6,8 +6,9 @@ import { Label } from './ui/label';
 import { Input } from './ui/input';
 import { Button } from './ui/button';
 import { Alert } from './ui/alert';
+import Facebook from "@/components/Facebook";
 
-const FetchDataComponent: React.FC = () => {
+const FacebookFetchComponent: React.FC = () => {
   const [url, setUrl] = useState<string>('https://www.facebook.com/gagadaily/');
   const [numOfPosts, setNumOfPosts] = useState<number>(5);
   const [response, setResponse] = useState<any>(null);
@@ -22,7 +23,7 @@ const FetchDataComponent: React.FC = () => {
     console.log('Form submitted with:', { url, numOfPosts });
 
     try {
-      const res = await fetch('/api/fetchData', {
+      const res = await fetch('/api/fetchFacebookData', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -78,7 +79,7 @@ const FetchDataComponent: React.FC = () => {
       {response && (
         <div className="mt-4">
           <h2 className="text-lg font-semibold">Response:</h2>
-          <pre className="bg-gray-100 p-2 rounded">{JSON.stringify(response, null, 2)}</pre>
+         <Facebook posts={response}/>
         </div>
       )}
 
@@ -92,4 +93,4 @@ const FetchDataComponent: React.FC = () => {
   );
 };
 
-export default FetchDataComponent;
+export default FacebookFetchComponent;

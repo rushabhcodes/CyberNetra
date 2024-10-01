@@ -53,7 +53,7 @@ interface InstagramProps {
 
 const Instagram: React.FC<InstagramProps> = ({ data }) => {
     const account = data[0];
-    const latestPosts = account.posts.slice(0, 5);
+    const latestPosts = account.posts && account.posts.length > 0 ? account.posts.slice(0, 5) : [];
     
     const engagementData = latestPosts.map(post => ({
         id: post.id.slice(-4),
