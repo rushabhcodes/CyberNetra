@@ -64,7 +64,7 @@ const Instagram: React.FC<InstagramProps> = ({ data }) => {
 
     return (
         <div className='w-full max-w-3xl mx-auto p-4'>
-          <div className='text-2xl font-bold'>Instagram Post Investigation</div>
+          <div className='text-2xl font-bold'>Instagram Netra</div>
           <div className=" m-6 p-6 max-w-4xl mx-auto bg-white shadow-lg rounded-lg">
           
               <header className="flex items-center mb-6 mt-6">

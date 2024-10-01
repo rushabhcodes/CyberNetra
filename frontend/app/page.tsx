@@ -1,5 +1,6 @@
 import Facebook from "@/components/Facebook";
 import Instagram from "@/components/Instagram";
+import X from "@/components/X";
 
 const facebook_posts = [
   {
@@ -349,12 +350,115 @@ const instagram_data = [
   }
 ]
 
+const x_data = [
+  {
+ "input": {
+ "url": "https://x.com/elonmusk"
+ },
+ "x_id": "44196397",
+ "url": "https://x.com/elonmusk",
+ "id": "elonmusk",
+ "profile_name": "Elon Musk",
+ "biography": null,
+ "is_verified": true,
+ "profile_image_link": "https://pbs.twimg.com/profile_images/1815749056821346304/jS8I28PL_normal.jpg",
+ "external_link": null,
+ "date_joined": "2009-06-02T20:12:29.000Z",
+ "following": 766,
+ "followers": 199772135,
+ "subscriptions": 169,
+ "location": null,
+ "birth_date": null,
+ "posts_count": 53016,
+ "posts": [
+ {
+ "post_id": "1519480761749016577",
+ "description": "Next I’m buying Coca-Cola to put the cocaine back in",
+ "date_posted": "2022-04-28T00:56:58.000Z",
+ "post_url": "https://twitter.com/44196397/status/1519480761749016577",
+ "photos": null,
+ "videos": null,
+ "replies": 179852,
+ "reposts": 620943,
+ "likes": 4439067,
+ "views": null,
+ "hashtags": []
+ },
+ {
+ "post_id": "1812258574049157405",
+ "description": "https://t.co/6eOgN9UdOy",
+ "date_posted": "2024-07-13T22:51:28.000Z",
+ "post_url": "https://twitter.com/44196397/status/1812258574049157405",
+ "photos": [
+ "https://pbs.twimg.com/media/GSZvkScbIAAwHQi.jpg"
+ ],
+ "videos": [],
+ "replies": 74404,
+ "reposts": 423415,
+ "likes": 3461766,
+ "views": 241571191,
+ "hashtags": []
+ },
+ {
+ "post_id": "1518623997054918657",
+ "description": "I hope that even my worst critics remain on Twitter, because that is what free speech means",
+ "date_posted": "2022-04-25T16:12:30.000Z",
+ "post_url": "https://twitter.com/44196397/status/1518623997054918657",
+ "photos": null,
+ "videos": null,
+ "replies": 167873,
+ "reposts": 337050,
+ "likes": 3003937,
+ "views": null,
+ "hashtags": []
+ },{
+  "post_id": "1594131768298315777",
+ "description": "The people have spoken. \n\nTrump will be reinstated.\n\nVox Populi, Vox Dei.",
+ "date_posted": "2022-11-20T00:53:25.000Z",
+ "post_url": "https://twitter.com/44196397/status/1594131768298315777",
+ "photos": null,
+ "videos": null,
+ "replies": 122647,
+ "reposts": 112860,
+ "likes": 879607,
+ "views": null,
+ "hashtags": []
+ }
+ ],
+ "suggested_profiles": [
+ {
+ "profile_id": "50393960",
+ "profile_name": "Bill Gates",
+ "profile_url": "https://x.com/BillGates",
+ "profile_image": "https://pbs.twimg.com/profile_images/1674815862879178752/nTGMV1Eo_normal.jpg"
+ },
+ {
+ "profile_id": "13298072",
+ "profile_name": "Tesla",
+ "profile_url": "https://x.com/Tesla",
+ "profile_image": "https://pbs.twimg.com/profile_images/1337607516008501250/6Ggc4S5n_normal.png"
+ },
+ {
+ "profile_id": "2455740283",
+ "profile_name": "MrBeast",
+ "profile_url": "https://x.com/MrBeast",
+ "profile_image": "https://pbs.twimg.com/profile_images/994592419705274369/RLplF55e_normal.jpg"
+ }
+ ],
+ "is_business_account": false,
+ "is_government_account": false,
+ "category_name": null,
+ "timestamp": "2024-10-01T13:10:26.335Z"
+ }
+ ] 
+
 export default function Home() {
   return (
-    <div className="flex items-center min-h-screen gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
+    <div className="flex flex-auto min-h-screen gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
       {/* <Test {data}/> */}
       <Instagram  data={instagram_data} />
       <Facebook posts={facebook_posts}/>
+      <X data={x_data }/>
     </div>
   );
 }   

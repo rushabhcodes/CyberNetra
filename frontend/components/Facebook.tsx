@@ -40,7 +40,7 @@ interface Facebook {
 const Facebook: React.FC<Facebook> = ({ posts }) => {
   return (
     <div className="w-full max-w-3xl mx-auto p-4">
-      <h1 className="text-2xl font-bold mb-4">Facebook Posts Investigation</h1>
+      <h1 className="text-2xl font-bold mb-4">Facebook Netra</h1>
       <ScrollArea className="h-[600px] rounded-md border p-4">
         {posts.map((post, index) => (
           <Card key={post.post_id} className="mb-4">
