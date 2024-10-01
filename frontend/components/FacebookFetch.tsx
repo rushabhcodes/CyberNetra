@@ -49,7 +49,7 @@ const FacebookFetchComponent: React.FC = () => {
 
   return (
     <Card className="p-4">
-      <h1 className="text-lg font-bold">Fetch Data from BrightData API</h1>
+      <h1 className="text-lg font-bold">Fetch Facebook Data</h1>
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
           <Label htmlFor="url">URL:</Label>

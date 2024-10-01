@@ -19,6 +19,11 @@ export async function POST(req: Request) {
     return NextResponse.json({ message: 'Missing required fields' }, { status: 400 });
   }
 
+  if (!API_TOKEN) {
+    console.error('Missing API token');
+    return NextResponse.json({ message: 'Missing API token' }, { status: 500 });
+  }
+
   try {
     console.log('Triggering data collection for URL:', url, 'with numOfPosts:', numOfPosts);
     
@@ -56,7 +61,8 @@ export async function POST(req: Request) {
       return NextResponse.json(triggerData, { status: triggerResponse.status });
     }
   } catch (error) {
-    console.error('Error occurred:', error);
-    return NextResponse.json({ error: error.message }, { status: 500 });
-  }
+    const errorMessage = (error instanceof Error) ? error.message : 'An unknown error occurred';
+    console.error('Error occurred:', errorMessage);
+    return NextResponse.json({ error: errorMessage }, { status: 500 });
+}
 }

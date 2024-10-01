@@ -89,9 +89,9 @@ const Instagram: React.FC<InstagramProps> = ({ data }) => {
                       <p>{account.biography}</p>
                   </div>
               </section>
-              <section className="mb-6">
+              {/* <section className="mb-6">
                   <h2 className="text-xl font-semibold mb-4">Latest 5 Posts Engagement</h2>
-                    {/* <ResponsiveContainer width="100%" height={300}>
+                    <ResponsiveContainer width="100%" height={300}>
                         <BarChart data={engagementData}>
                             <XAxis dataKey="date" />
                             <YAxis />
@@ -99,8 +99,8 @@ const Instagram: React.FC<InstagramProps> = ({ data }) => {
                             <Bar dataKey="likes" fill="#8884d8" name="Likes" />
                             <Bar dataKey="comments" fill="#82ca9d" name="Comments" />
                         </BarChart>
-                    </ResponsiveContainer> */}
-              </section>
+                    </ResponsiveContainer>
+              </section> */}
               <section>
                   <h2 className="text-xl font-semibold mb-4">Latest 5 Posts</h2>
                   <div className="space-y-4">

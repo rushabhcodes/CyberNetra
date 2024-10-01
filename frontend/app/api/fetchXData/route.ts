@@ -11,7 +11,7 @@ async function fetchSnapshotStatus(snapshotId: string, apiToken: string) {
 }
 
 export async function POST(req: Request) {
-  const { url } = await req.json(); // Now only expecting URL
+  const { url } = await req.json(); // Expecting URL
   const API_TOKEN = process.env.BRIGHT_DATA_API_TOKEN;
 
   if (!url) {
@@ -19,17 +19,22 @@ export async function POST(req: Request) {
     return NextResponse.json({ message: 'Missing required field: url' }, { status: 400 });
   }
 
+  if (!API_TOKEN) {
+    console.error('Missing API token');
+    return NextResponse.json({ message: 'Missing API token' }, { status: 500 });
+  }
+  
   try {
-    console.log('Triggering data collection for Instagram URL:', url);
+    console.log('Triggering data collection for URL:', url);
     
-    // Request to trigger data collection for Instagram
-    const triggerResponse = await fetch('https://api.brightdata.com/datasets/v3/trigger?dataset_id=gd_l1vikfch901nx3by4', {
+    // Request to trigger data collection for x.com
+    const triggerResponse = await fetch('https://api.brightdata.com/datasets/v3/trigger?dataset_id=gd_lwxmeb2u1cniijd7t4', {
       method: 'POST',
       headers: {
         'Authorization': `Bearer ${API_TOKEN}`,
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify([{ url }]), // Only sending the URL
+      body: JSON.stringify([{ url }]), // Sending the URL
     });
 
     const triggerData = await triggerResponse.json();
@@ -52,13 +57,14 @@ export async function POST(req: Request) {
         }
 
         // Wait for 10 seconds before the next check
-        await new Promise(resolve => setTimeout(resolve, 60000));
+        await new Promise(resolve => setTimeout(resolve, 10000));
       }
     } else {
       return NextResponse.json(triggerData, { status: triggerResponse.status });
     }
   } catch (error) {
-    console.error('Error occurred:', error);
-    return NextResponse.json({ error: error.message }, { status: 500 });
-  }
+    const errorMessage = (error instanceof Error) ? error.message : 'An unknown error occurred';
+    console.error('Error occurred:', errorMessage);
+    return NextResponse.json({ error: errorMessage }, { status: 500 });
+}
 }

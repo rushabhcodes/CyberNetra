@@ -6,7 +6,7 @@ import { Label } from './ui/label';
 import { Input } from './ui/input';
 import { Button } from './ui/button';
 import { Alert } from './ui/alert';
-import Instagram from './Instagram';
+import X from './X';
 
 const XFetchComponent: React.FC = () => {
   const [url, setUrl] = useState<string>('https://x.com/elonmusk/'); // Default Instagram URL
