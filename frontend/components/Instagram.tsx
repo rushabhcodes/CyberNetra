@@ -82,7 +82,9 @@ const Instagram: React.FC<InstagramProps> = ({ data }) => {
         link.click();
 
         // Revert background color to original
-        componentRef.current.style.backgroundColor = originalBackgroundColor;
+        if (componentRef.current) {
+          componentRef.current.style.backgroundColor = originalBackgroundColor;
+        }
       });
     }
   };
@@ -103,17 +105,17 @@ const Instagram: React.FC<InstagramProps> = ({ data }) => {
               src={account.profile_image_link}
               alt={account.full_name}
               className="w-20 h-20 rounded-full mr-4"
+              onError={(e) => {
+                e.currentTarget.src = "/path/to/fallback/image.png"; // Fallback image
+              }}
             />
           ) : (
             <Image
               width={50}
               height={50}
-              src={account.profile_image_link}
+              src="/path/to/fallback/image.png" // Fallback image
               alt={account.full_name}
               className="w-20 h-20 rounded-full mr-4"
-              onError={(e) => {
-                e.currentTarget.src = "/path/to/fallback/image.png"; // Fallback image
-              }}
             />
           )}
           <div>
@@ -166,23 +168,16 @@ const Instagram: React.FC<InstagramProps> = ({ data }) => {
           <h2 className="text-xl font-semibold mb-4">Latest 5 Posts</h2>
           <ScrollArea className="h-[600px] rounded-md border p-4">
             <div className="space-y-4">
-              {latestPosts.map((post, index) => (
-                <div key={index} className="border p-4 rounded-lg">
-                  {post.image_url ? (
-                    <Image
-                      src={post.image_url}
-                      alt="Post image"
-                      width={600}
-                      height={400}
-                      className="w-full rounded-md mb-4"
-                    />
-                  ) : (
-                    <img
-                      src={post.image_url}
-                      alt="Post image"
-                      className="w-full rounded-md mb-4"
-                    />
-                  )}
+              {latestPosts.map((post) => (
+                <div key={post.id} className="border p-4 rounded-lg">
+                  <Image
+                    src={post.image_url}
+                    alt="Post image"
+                    width={600}
+                    height={400}
+                    className="w-full rounded-md mb-4"
+                  />
+
                   <p className="font-semibold mb-2">{post.caption}</p>
                   <div className="flex justify-between text-sm text-gray-600">
                     <span>

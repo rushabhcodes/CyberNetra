@@ -11,7 +11,7 @@ export default function Home() {
   CyberNetra
 </div>
     <SearchProfile></SearchProfile>
-      
+        
       <div className="grid grid-cols-3 min-h-screen gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
         {/* <Test {data}/> */}    
 

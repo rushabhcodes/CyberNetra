@@ -10,7 +10,7 @@ import X from './X';
 
 const XFetchComponent: React.FC = () => {
   const [url, setUrl] = useState<string>('https://x.com/elonmusk/'); // Default Instagram URL
-  const [response, setResponse] = useState<any>(null);
+  const [response, setResponse] = useState(null);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
 

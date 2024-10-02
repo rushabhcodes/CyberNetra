@@ -79,7 +79,9 @@ const X: React.FC<XProps> = ({ data }) => {
         link.click();
 
         // Revert the background color to original
-        componentRef.current.style.backgroundColor = originalBackgroundColor;
+        if (componentRef.current) {
+          componentRef.current.style.backgroundColor = originalBackgroundColor;
+        }
       });
     }
   };

@@ -6,8 +6,9 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Separator } from '@/components/ui/separator';
 import { Heart, Share2, MessageCircle } from 'lucide-react';
 import html2canvas from 'html2canvas'; // Import html2canvas
+import Image from 'next/image'; // Import Image from Next.js
 
-// Interfaces (no changes)
+// Interfaces
 interface LikesType {
   type: string;
   num: number;
@@ -63,12 +64,13 @@ const Facebook: React.FC<Facebook> = ({ posts }) => {
         link.click();
   
         // Revert the background color to original
-        componentRef.current.style.backgroundColor = originalBackgroundColor;
+        if (componentRef.current) {
+          componentRef.current.style.backgroundColor = originalBackgroundColor;
+        }
       });
     }
   };
   
-
   return (
     <div className="w-full max-w-3xl mx-auto p-4">
       <div className="text-2xl font-bold">Facebook Netra</div>
@@ -122,7 +124,14 @@ const Facebook: React.FC<Facebook> = ({ posts }) => {
                   <CardContent>
                     <p className="mb-4">{post.content}</p>
                     {post.post_image && (
-                      <img src={post.post_image} alt="Post image" className="w-full rounded-md mb-4" />
+                      <Image 
+                        src={post.post_image} 
+                        alt="Post image" 
+                        className="w-full rounded-md mb-4" 
+                        width={500} // Provide a width for Next.js Image component
+                        height={300} // Provide a height for Next.js Image component
+                        layout="responsive" // Optional: Makes the image responsive
+                      />
                     )}
 
                     <div className="flex justify-between text-sm text-gray-500">

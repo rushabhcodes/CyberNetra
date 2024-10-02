@@ -11,7 +11,7 @@ import Facebook from "@/components/Facebook";
 const FacebookFetchComponent: React.FC = () => {
   const [url, setUrl] = useState<string>('https://www.facebook.com/gagadaily/');
   const [numOfPosts, setNumOfPosts] = useState<number>(5);
-  const [response, setResponse] = useState<any>(null);
+  const [response, setResponse] = useState(null);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
 

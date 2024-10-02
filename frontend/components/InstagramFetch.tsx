@@ -10,7 +10,7 @@ import Instagram from './Instagram';
 
 const InstagramFetchComponent: React.FC = () => {
   const [url, setUrl] = useState<string>('https://www.instagram.com/_creative_.world/'); // Default Instagram URL
-  const [response, setResponse] = useState<any>(null);
+  const [response, setResponse] = useState(null);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
 
