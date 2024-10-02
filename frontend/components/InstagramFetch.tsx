@@ -67,7 +67,6 @@ const InstagramFetchComponent: React.FC = () => {
 
       {response && (
         <div className="mt-4">
-          <h2 className="text-lg font-semibold">Response:</h2>
           <Instagram data={response}/>
         </div>
       )}

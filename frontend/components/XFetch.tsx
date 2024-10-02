@@ -67,7 +67,6 @@ const XFetchComponent: React.FC = () => {
 
       {response && (
         <div className="mt-4">
-          <h2 className="text-lg font-semibold">Response:</h2>
           <X data={response}/>
         </div>
       )}
