@@ -1,6 +1,7 @@
 
 import FacebookFetchComponent from "@/components/FacebookFetch";
 import InstagramFetchComponent from "@/components/InstagramFetch";
+import OSINT from "@/components/OSINT";
 import SearchProfile from "@/components/SearchProfile";
 import XFetchComponent from "@/components/XFetch";
 
@@ -19,6 +20,7 @@ export default function Home() {
         <FacebookFetchComponent></FacebookFetchComponent>
         <XFetchComponent></XFetchComponent>
       </div>
+      <OSINT/>
     </div>
   );
 }     
