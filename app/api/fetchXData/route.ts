@@ -57,7 +57,7 @@ export async function POST(req: Request) {
         }
 
         // Wait for 10 seconds before the next check
-        await new Promise(resolve => setTimeout(resolve, 10000));
+        await new Promise(resolve => setTimeout(resolve, 5000));
       }
     } else {
       return NextResponse.json(triggerData, { status: triggerResponse.status });
