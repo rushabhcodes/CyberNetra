@@ -11,7 +11,14 @@ const Search = () => {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
-  const [results, setResults] = useState<any[]>([]);
+  interface SearchResult {
+    url: string;
+    title: string;
+    snippet: string;
+    source: string;
+  }
+  
+  const [results, setResults] = useState<SearchResult[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
@@ -89,7 +96,7 @@ const Search = () => {
       
       {/* Conditionally render ScrollArea only if results exist */}
       {results.length > 0 && (
-        <ScrollArea className="h-[600px] rounded-md border p-4">
+        <ScrollArea className="h-[600px] rounded-md border p-4 bg-black ">
           <ul className="space-y-2">
             {results.map((result, index) => (
               <li key={index} className="border p-4 rounded-md shadow-sm hover:shadow-lg transition-shadow duration-300">
